@@ -1,10 +1,26 @@
+
+description "A gradle plugin that supplies task types for interaction with the artifactory REST API"
+
 apply plugin: 'groovy'
+apply plugin: 'maven-publish'
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    compile group: 'org.codehaus.groovy', name: 'groovy', version: '2.3.2'
-    compile group: 'org.jfrog.artifactory.client', name: 'artifactory-java-client-api', version: '0.14'
+    compile gradleApi()
+    compile group: 'org.jfrog.artifactory.client', name: 'artifactory-java-client-services', version: '0.14'
+
+    testCompile (group: 'org.spockframework', name: 'spock-core', version: '0.7-groovy-2.0') {
+        exclude group:'org.codehaus.groovy'
+    }
+}
+
+publishing {
+    publications {
+        mavenGroovy(MavenPublication) {
+            from components.groovy
+        }
+    }
 }

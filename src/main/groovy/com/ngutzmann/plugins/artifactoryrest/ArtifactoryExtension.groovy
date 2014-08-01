@@ -2,9 +2,9 @@ package com.ngutzmann.plugins.artifactoryrest
 
 class ArtifactoryExtension {
 
-    String url
-    String username
-    String password
+    String url = null
+    String username = null
+    String password = null
 
     void url(String url){
         this.url = url

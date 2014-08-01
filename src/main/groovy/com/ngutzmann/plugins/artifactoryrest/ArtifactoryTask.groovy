@@ -1,11 +1,7 @@
 package com.ngutzmann.plugins.artifactoryrest
 
+import org.gradle.api.DefaultTask
+
 abstract class ArtifactoryTask extends DefaultTask {
-
-    ArtifactoryExtension extension
-
-    protected ArtifactoryTask(ArtifactoryExtension extension){
-        this.extension = extension
-    }
 
 }
